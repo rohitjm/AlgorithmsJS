@@ -14,8 +14,18 @@ function fibDynamic(n) {
       return fibStore[n];
     }
   }
-
   return internalFib(n);
+}
+
+// alterate method that doesnt use recursion
+function fibDynamic2(n) {
+  let fibStore = {};
+  fibStore[1] = fibStore[2] = 1;
+  
+  for(let i = 3; i <= n; i++) {
+    fibStore[i] = fibStore[i-1] + fibStore[i-2];
+  }
+  return fibStore[n];
 }
 
 console.log(fibDynamic(7));
